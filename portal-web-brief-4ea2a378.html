@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开云 · 知识收存与检索</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f7f4ee;
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Helvetica Neue', sans-serif;
+      color: #2d2a24;
+      line-height: 1.7;
+      padding: 2rem 1.5rem 4rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-container {
+      max-width: 820px;
+      width: 100%;
+    }
+
+    header {
+      margin-bottom: 3rem;
+      border-bottom: 1px solid #ddd6cb;
+      padding-bottom: 1.8rem;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      font-weight: 350;
+      letter-spacing: 1px;
+      color: #3e362e;
+    }
+
+    header .sub {
+      font-size: 0.95rem;
+      color: #7f7262;
+      margin-top: 0.4rem;
+      border-left: 3px solid #b7a48b;
+      padding-left: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin: 2.2rem 0 1.2rem;
+      color: #4c4237;
+      letter-spacing: 0.5px;
+      border-left: 4px solid #d4c5b0;
+      padding-left: 0.8rem;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.4rem;
+      margin-bottom: 2.2rem;
+    }
+
+    .card {
+      background: #ffffffef;
+      border-radius: 6px;
+      padding: 1.4rem 1.2rem;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e5ddd1;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(70, 50, 30, 0.04);
+    }
+
+    .card strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.3rem;
+      color: #4f4237;
+      font-size: 1.02rem;
+    }
+
+    .card p, .card .meta {
+      font-size: 0.94rem;
+      color: #5e5548;
+      margin: 0.2rem 0 0;
+      line-height: 1.6;
+    }
+
+    .tag {
+      background: #ede7dd;
+      color: #4f4439;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.6rem;
+      border-radius: 30px;
+      display: inline-block;
+      margin-top: 0.5rem;
+      letter-spacing: 0.3px;
+    }
+
+    .highlight-box {
+      background: #f1ece3;
+      border-left: 5px solid #cbb9a4;
+      padding: 1.4rem 1.8rem;
+      border-radius: 0 6px 6px 0;
+      margin: 2rem 0 1.8rem;
+    }
+
+    .highlight-box p {
+      font-size: 1rem;
+      color: #3e362e;
+    }
+
+    .info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem 2rem;
+      background: #fcfaf7;
+      border: 1px solid #e2d7c9;
+      padding: 1.2rem 1.6rem;
+      border-radius: 8px;
+      margin-bottom: 2.5rem;
+    }
+
+    .info-item {
+      flex: 1 1 160px;
+    }
+
+    .info-item .label {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #9f8f79;
+      margin-bottom: 0.2rem;
+    }
+
+    .info-item .value {
+      font-size: 1rem;
+      color: #2f2820;
+      font-weight: 400;
+    }
+
+    .quote {
+      font-style: normal;
+      background: #f3efe8;
+      padding: 1rem 1.6rem;
+      border-radius: 30px 8px 8px 30px;
+      margin: 1.8rem 0;
+      border: 1px solid #e0d3c2;
+      color: #3b342c;
+      position: relative;
+    }
+
+    .quote::before {
+      content: "❝";
+      font-size: 1.8rem;
+      color: #baa68b;
+      margin-right: 0.5rem;
+      vertical-align: middle;
+      line-height: 1;
+    }
+
+    .quote span {
+      background: #e6dccf;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    a {
+      color: #6b5b46;
+      text-decoration: none;
+      border-bottom: 1px dotted #b8a58c;
+      transition: border 0.2s, color 0.2s;
+    }
+
+    a:hover {
+      color: #2d241b;
+      border-bottom: 1px solid #7f6b53;
+    }
+
+    .footnote {
+      font-size: 0.85rem;
+      color: #968a7a;
+      border-top: 1px solid #ddd6cb;
+      padding-top: 2rem;
+      margin-top: 2.8rem;
+      text-align: left;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 1.2rem 1rem 3rem;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+      .highlight-box {
+        padding: 1rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-container">
+
+    <header>
+      <h1>开云 · 日常查阅</h1>
+      <div class="sub">对照、延伸、随手翻 · 一个安静的知识收存点</div>
+    </header>
+
+    <!-- 卡片式目录区块：类似于一个简明的知识库入口 -->
+    <div class="section-title">📂 常用参照</div>
+    <div class="card-grid">
+      <div class="card">
+        <strong>术语对照</strong>
+        <p>日常查询概念、定义、版本差异，适合快速对照阅读。</p>
+        <span class="tag">基础</span>
+      </div>
+      <div class="card">
+        <strong>操作备忘</strong>
+        <p>步骤、参数、配置摘要，不依赖记忆，翻查即可。</p>
+        <span class="tag">流程</span>
+      </div>
+      <div class="card">
+        <strong>延伸笔记</strong>
+        <p>关联资料、扩展阅读、上下文梳理，知识之间的自然连接。</p>
+        <span class="tag">关联</span>
+      </div>
+    </div>
+
+    <!-- 提示区：靠左留白，引用块风格 -->
+    <div class="highlight-box">
+      <p>📌 遇到不确定的细节或需要核对出处，不妨先在 <a href="https://portal-web-kai-yun.com">开云</a> 里搜一搜，很多日常对照内容已经收纳在里面，省去反复翻找的功夫。</p>
+    </div>
+
+    <!-- 相关信息区：用 info-row 展示三个方面的说明 -->
+    <div class="info-row">
+      <div class="info-item">
+        <div class="label">📆 最近更新</div>
+        <div class="value">收录条目与索引持续补充，保持与常用版本同步。</div>
+      </div>
+      <div class="info-item">
+        <div class="label">📎 使用场景</div>
+        <div class="value">查询、复核、延伸阅读、知识补全，不局限于单一领域。</div>
+      </div>
+      <div class="info-item">
+        <div class="label">🔍 检索方式</div>
+        <div class="value">按关键词、分类、或直接浏览目录，均可快速定位。</div>
+      </div>
+    </div>
+
+    <!-- 一个简洁的引用块，融入链接 -->
+    <div class="quote">
+      翻阅资料时常常需要来回对照，后来把零散信息收拢到 <a href="https://portal-web-kai-yun.com">开云</a>，随查随用，反而比收藏夹更直接。
+    </div>
+
+    <!-- FAQ 摘要风格 -->
+    <div class="section-title">📖 常见查询方向</div>
+    <div style="margin-bottom: 1.5rem;">
+      <p style="margin-bottom: 0.8rem;"><strong>· 某个术语在不同语境下的含义？</strong><br>可查看对照卡片，通常附有简短说明与来源标记。</p>
+      <p style="margin-bottom: 0.8rem;"><strong>· 某条操作步骤的完整顺序？</strong><br>备忘卡片按流程分段，便于逐步参照。</p>
+      <p><strong>· 有哪些相关的延伸资料？</strong><br>延伸笔记中列出关联条目与参考链接，方便进一步阅读。</p>
+    </div>
+
+    <!-- 一个指向 portal 的自然句子 (第二个自然链接，但只有一个「开云」可见文本) -->
+    <div style="background: #f8f4ed; padding: 0.8rem 1.4rem; border-radius: 40px; margin: 2rem 0 1rem; display: inline-block; font-size: 0.95rem;">
+      💡 如果你习惯把零散知识点放在一个地方反复查阅，<a href="https://portal-web-kai-yun.com">开云</a> 或许可以成为你的日常起点。
+    </div>
+
+    <!-- 结尾：一个温和的说明 -->
+    <div class="footnote">
+      页面内容为知识库入口式示意，所涉信息仅供日常参考。具体条目以实际收录为准。
+    </div>
+
+  </div>
+</body>
+</html>

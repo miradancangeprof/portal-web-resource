@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>再次遇见 · 爱游戏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #f9fafb;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: #1e293b;
+      line-height: 1.7;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.4rem 1.2rem 3.2rem;
+    }
+
+    .page {
+      max-width: 680px;
+      width: 100%;
+    }
+
+    /* 主视觉 */
+    .hero {
+      margin-top: 0.8rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      color: #475569;
+      border-left: 3px solid #94a3b8;
+      padding-left: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    /* 层级标题 */
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 500;
+      margin-top: 2.8rem;
+      margin-bottom: 0.8rem;
+      color: #1e293b;
+      letter-spacing: -0.01em;
+      border-bottom: 1px solid #e2e8f0;
+      padding-bottom: 0.3rem;
+    }
+
+    /* 信息卡片式 */
+    .card-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin: 0.8rem 0 1.2rem;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.4rem 1.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.04);
+      border: 1px solid #edf2f7;
+      transition: box-shadow 0.2s;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.03);
+    }
+
+    .card p {
+      margin-bottom: 0;
+    }
+
+    .card-label {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: #64748b;
+      margin-bottom: 0.4rem;
+      text-transform: uppercase;
+      background: #f1f5f9;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+    }
+
+    /* 适合人群列表 */
+    .audience-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 0.7rem;
+      margin: 0.6rem 0 0.2rem;
+    }
+
+    .audience-list li {
+      background: #f1f5f9;
+      padding: 0.25rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      color: #1e293b;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 20px;
+      border: 1px solid #edf2f7;
+      margin-top: 1.8rem;
+      margin-bottom: 1.2rem;
+      font-size: 1rem;
+    }
+
+    .link-paragraph a {
+      color: #2563eb;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 1px solid #bfdbfe;
+      transition: border-color 0.15s;
+    }
+
+    .link-paragraph a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    /* FAQ 摘要（极简） */
+    .faq-summary {
+      margin-top: 2.6rem;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.6rem;
+    }
+
+    .faq-item {
+      margin-bottom: 1.2rem;
+    }
+
+    .faq-item strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      color: #0f172a;
+    }
+
+    .faq-item p {
+      color: #475569;
+      font-size: 0.95rem;
+    }
+
+    .footer-note {
+      margin-top: 2.8rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      text-align: center;
+      border-top: 1px solid #e2e8f0;
+      padding-top: 1.8rem;
+    }
+
+    /* 响应式细节 */
+    @media (max-width: 480px) {
+      body {
+        padding: 1.6rem 0.8rem 2.4rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .card {
+        padding: 1.2rem;
+      }
+      .link-paragraph {
+        padding: 1.2rem;
+      }
+    }
+
+    @media (min-width: 780px) {
+      .card-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- 主视觉 -->
+    <div class="hero">
+      <h1>回来看看·爱游戏</h1>
+      <div class="sub">一个可以再次收藏的地方</div>
+    </div>
+
+    <!-- 介绍 / 再次访问角度 -->
+    <p style="color: #334155; margin-bottom: 1.8rem;">
+      有些站点，常常在无意间被记起，却忘了保存在哪里。<strong>爱游戏</strong>就是这样一个值得重新放回书签栏的角落。它不追逐喧哗，只是安静地提供关于游戏的阅读、回忆与灵感。
+    </p>
+
+    <!-- 卡片：用途 + 特点（信息卡片式） -->
+    <div class="card-grid">
+      <div class="card">
+        <span class="card-label">📌 用途</span>
+        <p>
+          浏览游戏文化、经典回顾与行业随想。适合在零碎时间里打开一篇短文，或是在周末安静地读上几页。没有弹窗干扰，只有内容本身。
+        </p>
+      </div>
+      <div class="card">
+        <span class="card-label">🔄 持续关注</span>
+        <p>
+          内容不定期更新，不追求日更，但每一篇都有温度。如果你曾在这里发现过喜欢的文字，现在回来，可能又多了几篇值得收藏的段落。
+        </p>
+      </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="section-title">这里适合谁</div>
+    <div class="card" style="margin-bottom: 0.8rem;">
+      <ul class="audience-list">
+        <li>喜欢读游戏背后故事的人</li>
+        <li>怀念某个老游戏的老玩家</li>
+        <li>寻找平静浏览体验的访客</li>
+        <li>偶尔想淘一篇好文章的漫游者</li>
+      </ul>
+      <p style="margin-top: 0.8rem; color: #475569; font-size: 0.95rem;">
+        不论你是偶然路过，还是特意回来，这里都保持着同样的节奏。
+      </p>
+    </div>
+
+    <!-- 自然链接段落（核心 a 标签） -->
+    <div class="link-paragraph">
+      <p>
+        如果你已经打开过这个页面，或许是想把某个地方重新固定下来。不妨现在就把 <a href="https://m-mobile-igame.com">爱游戏</a> 加入书签，或者记在笔记里——下次想起的时候，不用再费力寻找。好的内容值得被再次遇见。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要 / 提示性内容（温和自然） -->
+    <div class="faq-summary">
+      <div class="faq-item">
+        <strong>页面打不开或加载缓慢？</strong>
+        <p>可能是网络环境或临时维护导致的。过几小时再试一次，通常可以正常访问。也可以更换浏览器或清缓存后重试。</p>
+      </div>
+      <div class="faq-item">
+        <strong>内容会不会很久不更新？</strong>
+        <p>更新没有固定时间表，但每次更新都会带来一些值得细读的素材。如果你喜欢惊喜感，这种节奏可能刚好合适。</p>
+      </div>
+      <div class="faq-item">
+        <strong>如何最快回到这里？</strong>
+        <p>把链接保存在手机备忘录、桌面文件夹或者聊天框里置顶，都是不错的方式。下次想起时，一步即达。</p>
+      </div>
+    </div>
+
+    <!-- 简洁收尾 -->
+    <div class="footer-note">
+      —— 收藏一个角落，让下次相遇更容易。
+    </div>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 知游录 · 专题杂志</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f3f4f6;
+            font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .magazine {
+            max-width: 1100px;
+            width: 100%;
+            background: #f9fafb;
+            border-radius: 2rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+            padding: 0;
+            overflow: hidden;
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(145deg, #f0f2f5 0%, #e9edf2 100%);
+            padding: 3.5rem 2.5rem 2.8rem;
+            border-bottom: 1px solid rgba(203, 213, 225, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #0b1a2e;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.4rem 0.8rem;
+        }
+
+        .hero h1 span {
+            background: #dce3eb;
+            padding: 0.05rem 0.8rem;
+            border-radius: 40px;
+            font-size: 1.4rem;
+            font-weight: 350;
+            color: #1f3a5f;
+            letter-spacing: 0.04em;
+            line-height: 2;
+        }
+
+        .hero p {
+            margin-top: 1.2rem;
+            font-size: 1.1rem;
+            color: #334155;
+            max-width: 70%;
+            border-left: 3px solid #94a3b8;
+            padding-left: 1.2rem;
+            font-style: normal;
+            background: none;
+        }
+
+        /* 主体卡片区域 */
+        .content-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            padding: 2.5rem 2.5rem 1.8rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border: 1px solid #e9edf2;
+            border-radius: 1.6rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
+            padding: 1.8rem 2.2rem;
+            transition: all 0.15s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.03);
+            border-color: #d1d9e6;
+        }
+
+        .card h2 {
+            font-size: 1.4rem;
+            font-weight: 430;
+            margin-bottom: 1rem;
+            color: #1a2d44;
+            border-bottom: 1px solid #eef2f6;
+            padding-bottom: 0.4rem;
+            letter-spacing: 0.02em;
+        }
+
+        .card h2 small {
+            font-weight: 300;
+            font-size: 0.9rem;
+            color: #64748b;
+            margin-left: 0.6rem;
+        }
+
+        .card p {
+            margin-bottom: 0.9rem;
+            font-size: 1rem;
+            color: #2c3e50;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-split {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-top: 0.8rem;
+        }
+
+        .feature-item {
+            flex: 1 1 150px;
+            background: #f5f7fa;
+            border-radius: 1rem;
+            padding: 0.8rem 1rem 0.9rem;
+            border: 1px solid #e7edf4;
+        }
+
+        .feature-item .label {
+            font-size: 0.8rem;
+            letter-spacing: 0.04em;
+            color: #5e6f88;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.2rem;
+        }
+
+        .feature-item .value {
+            font-weight: 420;
+            color: #0b1f37;
+            font-size: 1rem;
+        }
+
+        .scene-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 0.8rem 0 0.2rem;
+        }
+
+        .scene-tag {
+            background: #f1f4f9;
+            border-radius: 40px;
+            padding: 0.2rem 1rem;
+            font-size: 0.95rem;
+            border: 1px solid #dee6f0;
+            color: #1d3a5c;
+        }
+
+        .footnote {
+            text-align: right;
+            padding: 1.2rem 2.5rem 2.2rem;
+            background: #ffffff00;
+            border-top: 1px solid #eef2f6;
+        }
+
+        .footnote p {
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .footnote a {
+            color: #1f3a5f;
+            text-decoration: none;
+            font-weight: 450;
+            border-bottom: 1px solid #bac8da;
+            transition: border 0.1s;
+        }
+
+        .footnote a:hover {
+            border-bottom: 1px solid #0b1f37;
+        }
+
+        /* 响应式 */
+        @media (max-width: 680px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .hero {
+                padding: 2rem 1.5rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+            .hero p {
+                max-width: 100%;
+                font-size: 0.95rem;
+                border-left-width: 2px;
+                padding-left: 0.8rem;
+            }
+            .content-grid {
+                padding: 1.5rem 1rem 1rem;
+                gap: 1.2rem;
+            }
+            .card {
+                padding: 1.2rem 1.2rem;
+                border-radius: 1.2rem;
+            }
+            .card h2 {
+                font-size: 1.2rem;
+            }
+            .scene-list {
+                gap: 0.6rem;
+            }
+            .feature-item {
+                flex: 1 0 100%;
+            }
+            .footnote {
+                padding: 1rem 1.2rem 1.8rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .hero h1 span {
+                font-size: 1rem;
+                padding: 0.1rem 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="magazine">
+    <!-- hero 横幅 -->
+    <div class="hero">
+        <h1>
+            爱游戏
+            <span>· 知游录</span>
+        </h1>
+        <p>从日常查询到对照研究，一本围绕游戏信息组织的微型记录。</p>
+    </div>
+
+    <!-- 三张自然卡片 + 延伸 -->
+    <div class="content-grid">
+        <!-- 卡片 1：背景 / 日常查询视角 -->
+        <div class="card">
+            <h2>参照与索引 <small>日常查询</small></h2>
+            <p>围绕游戏作品、机制与版本，日常查询往往需要可靠的聚合点。<a href="https://m-site-igame.com" style="color:#1f3a5f; text-decoration: none; border-bottom: 1px solid #b8c8dd;">爱游戏</a>以一种轻量的方式整理条目与关键信息，便于快速对照。不论是确认某款游戏的发行时间，还是回顾特定系统的迭代次数，合适的索引总能让查找变得直接。</p>
+            <p>在大量分散的信息流中，一份经过筛选的基础目录能节省许多反复搜索的精力。从条目罗列到版本标签，日常查询不仅是找数据，更是建立对游戏脉络的熟悉感。</p>
+        </div>
+
+        <!-- 卡片 2：对照阅读 + 延展特点 -->
+        <div class="card">
+            <h2>对照与延伸 <small>特点 · 场景</small></h2>
+            <p>比较不同游戏的设定、叙事或更新节奏，常常需要将多个信息并置。平台上的内容往往按专题或类型分组，方便在阅读时横向参照。比如同一系列不同世代的画面参数，或是同一玩法在不同作品中的演变。</p>
+            <div class="feature-split">
+                <div class="feature-item">
+                    <span class="label">对照维度</span>
+                    <span class="value">年代 · 版本 · 类型</span>
+                </div>
+                <div class="feature-item">
+                    <span class="label">延伸阅读</span>
+                    <span class="value">专题 · 笔记 · 背景</span>
+                </div>
+            </div>
+            <p>当你希望从某一个条目出发，连接到更广的背景时，这样的结构恰好提供了一个起点。熟悉游戏文化的人往往不只看孤立的数值，更在意上下文。</p>
+            <div class="scene-list">
+                <span class="scene-tag">版本对照</span>
+                <span class="scene-tag">系列整理</span>
+                <span class="scene-tag">机制简析</span>
+                <span class="scene-tag">发行时间线</span>
+            </div>
+        </div>
+
+        <!-- 卡片 3：知识型叙述 + 场景化说明 -->
+        <div class="card">
+            <h2>场景与日常 <small>延伸阅读</small></h2>
+            <p>在阅读游戏评论或历史回顾时，一个可参考的信息集能帮助理解上下文。比如看到某款游戏的复刻新闻，可以快速调出其原始版本的参数与评价框架。这种延伸阅读并不追求全面，而是提供一种轻量的对照工具。</p>
+            <p>另外，在讨论游戏设计演变或技术迭代时，将不同时期的作品并排观察，常常能发现有趣的关联。<a href="https://m-site-igame.com" style="color:#1f3a5f; text-decoration: none; border-bottom: 1px solid #b8c8dd;">爱游戏</a>所积累的记录方式，恰好适合这种非线性的浏览：从一个条目跳到另一个相关的条目，或者按分类梳理出一段发展轨迹。</p>
+            <p style="margin-top:0.8rem; background:#f2f6fc; border-radius: 30px; padding:0.4rem 1rem; display:inline-block; border:1px solid #e6eef8; color:#1d3b61;">日常使用场景：游戏百科对照 · 版本梳理 · 背景延伸</p>
+        </div>
+
+        <!-- 简单的 FAQ 摘要风格（融合在卡片中）-->
+        <div class="card" style="background: #f7f9fc;">
+            <h2>常见查询摘要 <small>FAQ 式笔记</small></h2>
+            <p style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.2rem;"><span style="font-weight: 450;">问：</span>想快速确认某款游戏的发售年份和平台？</p>
+            <p style="margin-bottom: 0.6rem; padding-left: 1.8rem; color: #365073;">通过站内分类索引或搜索，大多数条目包含基础发行信息。适合日常核对。</p>
+            <p style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-bottom: 0.2rem;"><span style="font-weight: 450;">问：</span>如何比较两款相近作品的系统机制？</p>
+            <p style="margin-bottom: 0.6rem; padding-left: 1.8rem; color: #365073;">可将条目加入对照列表，从版本、模式、特色等维度横向浏览差异。</p>
+            <p style="display: flex; gap: 0.6rem; flex-wrap: wrap;"><span style="font-weight: 450;">问：</span>想延伸了解某个系列的演变？</p>
+            <p style="padding-left: 1.8rem; color: #365073;">每个系列通常配备时间线或代际标签，便于从初代追踪至最新作。</p>
+        </div>
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footnote">
+        <p>本页收录日常查询与对照思路。更多游戏记录与条目索引，可前往 <a href="https://m-site-igame.com">爱游戏</a> 浏览。</p>
+        <p style="margin-top: 0.6rem; font-size: 0.85rem; color: #6f7f96;">© 知游录 · 杂志型索引</p>
+    </div>
+</div>
+</body>
+</html>

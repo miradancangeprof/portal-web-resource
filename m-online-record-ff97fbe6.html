@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>爱游戏 · 杂志专题</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(145deg, #fbe9dc 0%, #f6d5c0 40%, #efc6ae 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+            line-height: 1.6;
+            color: #2a221e;
+        }
+
+        .magazine {
+            max-width: 920px;
+            width: 100%;
+            background: #fffcf9;
+            border-radius: 48px 48px 32px 32px;
+            box-shadow: 0 20px 40px rgba(150, 90, 60, 0.20), 0 8px 16px rgba(0,0,0,0.04);
+            overflow: hidden;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .hero {
+            background: #f4dac5;
+            padding: 3.2rem 2.8rem 2.5rem;
+            border-bottom: 1px solid #e6cdb9;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            color: #3d2c22;
+            margin-bottom: 0.7rem;
+            line-height: 1.2;
+        }
+
+        .hero .sub {
+            font-size: 1rem;
+            color: #6f5548;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1.2rem;
+            border-top: 1px solid #dcc1ae;
+            padding-top: 1rem;
+            margin-top: 0.2rem;
+        }
+
+        .hero .sub span {
+            background: #ede2d9;
+            padding: 0.2rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #4b382d;
+        }
+
+        .content {
+            padding: 2.5rem 2.8rem 3rem;
+        }
+
+        .section {
+            margin-bottom: 2.4rem;
+        }
+
+        .section:last-of-type {
+            margin-bottom: 1.8rem;
+        }
+
+        .section h2 {
+            font-size: 1.35rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            color: #4d3629;
+            border-left: 5px solid #d9aa8e;
+            padding-left: 1rem;
+            margin-bottom: 0.9rem;
+        }
+
+        .section p {
+            margin-bottom: 0.9rem;
+            color: #3e322b;
+        }
+
+        .section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inline-link {
+            color: #b47b5f;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #eddccc;
+            transition: border-color 0.2s, background 0.15s;
+            padding: 0 0.1rem;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #b47b5f;
+            background: #f4e6dd;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.3rem;
+            margin-top: 1.2rem;
+        }
+
+        .feature-item {
+            background: #f9f0e9;
+            padding: 1.2rem 1.2rem 1.1rem;
+            border-radius: 24px;
+            transition: transform 0.15s, box-shadow 0.15s;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(140, 85, 60, 0.10);
+        }
+
+        .feature-item .label {
+            font-weight: 600;
+            display: block;
+            font-size: 1rem;
+            color: #3d2b20;
+            margin-bottom: 0.3rem;
+        }
+
+        .feature-item .desc {
+            font-size: 0.94rem;
+            color: #5c463a;
+        }
+
+        .faq-block {
+            background: #fcf5ef;
+            border-radius: 28px;
+            padding: 1.6rem 1.8rem;
+            margin: 2rem 0 1.2rem;
+        }
+
+        .faq-block h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #4f382b;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-block p {
+            font-size: 0.95rem;
+            color: #4c3b30;
+        }
+
+        .footer-note {
+            border-top: 1px solid #e7d4c7;
+            padding-top: 1.8rem;
+            margin-top: 0.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .footer-note .tagline {
+            font-size: 0.95rem;
+            color: #6e5749;
+            background: #f2e5db;
+            padding: 0.3rem 1.2rem;
+            border-radius: 40px;
+        }
+
+        .footer-note .ref {
+            font-size: 0.9rem;
+            color: #6c5546;
+        }
+
+        .footer-note .ref a {
+            color: #b47b5f;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #eddccc;
+        }
+
+        .footer-note .ref a:hover {
+            border-bottom-color: #b47b5f;
+            background: #f4e6dd;
+        }
+
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .hero {
+                padding: 2rem 1.5rem 1.8rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .content {
+                padding: 1.8rem 1.5rem 2rem;
+            }
+            .section h2 {
+                font-size: 1.2rem;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .faq-block {
+                padding: 1.2rem 1.2rem;
+            }
+            .footer-note {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="magazine">
+    <div class="hero">
+        <h1>爱游戏 · 案头参考</h1>
+        <div class="sub">
+            <span>日常查询</span>
+            <span>对照索引</span>
+            <span>延伸阅读</span>
+        </div>
+        <p style="margin-top: 1.2rem; font-size: 1.05rem; color: #4d382b; max-width: 85%;">
+            从查询、对照到延伸，一份围绕游戏资讯与素材的轻杂志式记录。
+        </p>
+    </div>
+
+    <div class="content">
+        <div class="section">
+            <h2>日常查询 · 信息简档</h2>
+            <p>
+                浏览或检索游戏相关内容时，一个聚合入口能节省大量翻找时间。<a href="https://m-online-igame.com" class="inline-link">爱游戏</a>提供基础的游戏库、攻略索引与版本动态，适合作为日常轻量查询的起点。页面结构以分类卡片和标签式筛选项为主，方便快速定位到感兴趣的方向。
+            </p>
+            <p>
+                多数条目附带简短说明与外部参考链接，便于交叉比对。对于需要频繁查阅特定作品或机制的用户，可以将其设为书签，减少重复搜索步骤。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>对照 · 特点与场景</h2>
+            <p>
+                不同平台、不同语种的游戏信息往往分散各处。<a href="https://m-online-igame.com" class="inline-link">爱游戏</a>尝试在单一页面中整合常见游戏数据，包括发行时间、类型标签、基础评分参考等字段，方便进行横向对比。以下为几个典型使用场景：
+            </p>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <span class="label">📋 参数对照</span>
+                    <span class="desc">版本号、发售日期、平台信息并列展示，快速比对各版本差异。</span>
+                </div>
+                <div class="feature-item">
+                    <span class="label">🔖 延伸索引</span>
+                    <span class="desc">从单一条目出发，关联相关作品、DLC 或衍生媒体，拓展阅读范围。</span>
+                </div>
+                <div class="feature-item">
+                    <span class="label">📌 标签筛选</span>
+                    <span class="desc">按题材、玩法或年代过滤列表，缩小关注区间，提高检索效率。</span>
+                </div>
+            </div>
+            <p style="margin-top: 1rem;">
+                每项数据均注明来源或采用社区公认的参考值，便于使用者自行核实。不预设评价结论，只提供可对照的事实性信息。
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>延伸阅读 · 内容脉络</h2>
+            <p>
+                除了基础数据，页面内也嵌入部分背景解读与关联条目摘要。例如，一款游戏的历史版本更新会附带简要的改动日志链接，机制说明则指向官方说明或玩家社区整理的详细文章。这种设计意在将<a href="https://m-online-igame.com" class="inline-link">爱游戏</a>作为阅读跳板，而非信息终点。
+            </p>
+            <p>
+                对于希望深入了解某款作品或某一类游戏趋势的用户，可以借助页面提供的参考链接进一步查阅专题报道、开发者访谈或数据统计。保持克制的信息密度，避免过度堆砌。
+            </p>
+        </div>
+
+        <div class="faq-block">
+            <h3>❓ 常见疑问摘要</h3>
+            <p><strong>Q：</strong> 数据更新频率如何？<br>
+            <strong>A：</strong> 核心条目随游戏版本或官方公告更新，社区参考部分按季度复核。部分历史数据标注了存档日期。</p>
+            <p style="margin-top: 0.6rem;"><strong>Q：</strong> 可以贡献补充信息吗？<br>
+            <strong>A：</strong> 页面主要聚合公开资料，暂不开设直接编辑入口。如有明确更正或补充，可通过网站底部邮箱联系维护方。</p>
+        </div>
+
+        <div class="footer-note">
+            <span class="tagline">杂志式 · 信息集</span>
+            <span class="ref">更多条目与对照索引，可至 <a href="https://m-online-igame.com">爱游戏</a> 浏览</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>
